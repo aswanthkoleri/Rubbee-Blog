@@ -1,6 +1,8 @@
 <h1>Blog</h1>
-<br>
-<h2> Blog Post 1</h2>
-<p>This is the post Description </p>
-<h2> Blog Post 2</h2>
-<p>This is the post Description </p>
+<hr>
+<% @posts.each do |post|%>
+<h2><%= link_to post.title,post %></h2>
+<p><%= post.body %></p>
+<hr>
+<!-- asd -->
+<% end %> 
