@@ -11,23 +11,30 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	if @post.save
-  		redirect_to posts_path
+  		redirect_to posts_path, :notice => "The post is created"
   	else
   		render "new"
   	end
   end
-  
-
-
   def edit
-
+    @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to posts_path, :notice => "The post is updated"
+    else
+      render "edit"
+    end
+  end
   def show
   	@post = Post.find(params[:id])
   end
   def destroy
-  	
+  	@post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, :notice => "The post is deleted"
   end
 end
 
