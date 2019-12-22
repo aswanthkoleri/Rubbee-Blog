@@ -1,3 +1,5 @@
 <h1> <%= @post.title %> </h1>
 <p> <%= @post.body %> </p>
-<h2><%= link_to "Edit post",edit_post_path %> | <%= link_to "Delete",@post, :confirm => "Are you sure to delete ? ", :method => :delete  %> </h2> 
+<p> <%= link_to @post.category.name, category_path %> </p>
+<h2><%= link_to "Edit post",edit_post_path %> | <%= link_to "Delete",@post, data: { confirm: 'Are you sure?'}, :method => :delete  %> </h2> 
+<h2><%= link_to "Go back",posts_path %></h2>
